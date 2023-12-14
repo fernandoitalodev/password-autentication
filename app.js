@@ -11,7 +11,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/user/:id",checkToken, async (req, res) => {
-  const id = req.params.id;
   const user = await User.findById(id, "-password");
   // this will return the id, but no the password
   if (!user) {
